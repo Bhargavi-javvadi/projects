@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <title>Add to Cart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    
+</head>
+<body>
+<div class="container">
+    <img src="assets/cat.png">
+    <input type="text" id="input-field" placeholder="Bread">
+    <button id="add-button">Add to cart</button>
+    <ul id="shopping-list">
+        <!-- Menu items -->
+        <li><button class="item-button" data-item="Milk" data-image="assets/milk (1).jpg">Milk</button></li>
+        <li><button class="item-button" data-item="Milk" data-image="assets/sweets.jpg">Sweets</button></li>
+        <li><button class="item-button" data-item="Milk" data-image="assets/burger.jpeg">Burger</button></li>
+        <li><button class="item-button" data-item="Milk" data-image="assets/bread5.webp">Bread</button></li>
+        <li><button class="item-button" data-item="Milk" data-image="assets/apples.png">Apples</button></li>
+        <li><button class="item-button" data-item="Milk" data-image="assets/cake.jpg">Cake</button></li>
+        <li><button class="item-button" data-item="Eggs" data-image="assets/juices.jpg">Juices</button></li>
+        <!-- Add more items here -->
+    </ul>
+</div>
+<!-- Lightbox HTML -->
+<div class="lightbox" id="lightbox">
+    <span class="close-btn" id="close">&times;</span>
+    <img id="lightbox-image" src="" alt="Image">
+    <button class="favorites-btn" id="favorites">Add to Favorites</button>
+    <button class="add-to-cart-btn" id="addToCart">Add to Cart</button>
+</div>
+
+<script>
+    // JavaScript for displaying lightbox with image
+    const itemButtons = document.querySelectorAll('.item-button');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const closeBtn = document.getElementById('close');
+    const favoritesBtn = document.getElementById('favorites');
+    const addToCartBtn = document.getElementById('addToCart');
+
+    itemButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const imageUrl = button.getAttribute('data-image');
+            if (imageUrl) {
+                lightboxImage.src = imageUrl;
+                lightbox.style.display = 'block';
+            }
+        });
+    });
+
+    closeBtn.addEventListener('click', function () {
+        lightbox.style.display = 'none';
+    });
+
+    favoritesBtn.addEventListener('click', function () {
+        // Add your code for handling favorites here
+        alert('Added to Favorites successfully!');
+    });
+
+    addToCartBtn.addEventListener('click', function () {
+        // Add your code for adding to cart here
+        alert('Added to Cart successfully!');
+    });
+</script>
+</body>
+</html>
